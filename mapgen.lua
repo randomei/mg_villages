@@ -208,7 +208,7 @@ mg_villages.lower_or_raise_terrain_at_point = function( x, z, target_height, min
 			end
 		end
 		if( air_counted > 3 or blend==0) then
-			for y=minp.y+15, maxp.y do
+			for y=minp.y, maxp.y do
 				data[a:index( x, y, z)] = cid.c_air;
 			end
 		end
