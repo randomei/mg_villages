@@ -6,7 +6,7 @@ mg_villages.ENABLE_VILLAGES = true;
 
 -- generate one random building for each mg_villages.INVERSE_HOUSE_DENSITY th mapchunk;
 -- set to 0 in order to disable spawning of these lone buildings outside villages
-mg_villages.INVERSE_HOUSE_DENSITY = 4;
+mg_villages.INVERSE_HOUSE_DENSITY = 7; -- 4
 
 -- cover some villages with artificial snow; probability: 1/mg_villages.artificial_snow_probability
 mg_villages.artificial_snow_probability = 10;
@@ -24,13 +24,13 @@ mg_villages.VILLAGE_DETECT_RANGE = 400;
 
 -- if set to true, only players which have the mg_villages priv can use the "/visit <village nr>"
 -- command which allows teleporting to the village with the given number
-mg_villages.REQUIRE_PRIV_FOR_TELEPORT = false;
+mg_villages.REQUIRE_PRIV_FOR_TELEPORT = true;
 
 -- if set to true, players cannot modify spawned villages without buying the house from the village first
 mg_villages.ENABLE_PROTECTION = true;
 
 -- the first village - the one the player spawns in - will be of this type
-mg_villages.FIRST_VILLAGE_TYPE = 'medieval';
+mg_villages.FIRST_VILLAGE_TYPE = 'taoki';
 
 -- the mapgen will disregard mapchunks where min.y > mg_villages.MAX_HEIGHT_TREATED;
 -- you can set this value to 64 if you have a slow machine and a mapgen which does not create extreme mountains
@@ -126,55 +126,57 @@ end
 -----------------------------------------------------------------------------
 -- how much does the player have to pay for a plot with a building?
 mg_villages.prices = {
-	empty          = "default:copper_ingot 1", -- plot to build on 
+	empty          = "currency:minegeld_25 1", -- plot to build on 
 
 	-- building types which usually have inhabitants (and thus allow the player
 	-- who bought the building to modifiy the entire village area minus other
 	-- buildings)
-	tent           = "default:copper_ingot 1",
-	hut            = "default:copper_ingot 1",
-	farm_full      = "default:gold_ingot 4",
-	farm_tiny      = "default:gold_ingot 2",
-	lumberjack     = "default:gold_ingot 2",
-	house          = "default:gold_ingot 2",
-	house_large    = "default:gold_ingot 4",
-	tavern         = "default:gold_ingot 12",
-	trader         = "default:gold_ingot 2",
+	tent           = "currency:minegeld_10 2",
+	hut            = "currency:minegeld_10 2",
+	farm_full      = "currency:minegeld_100 10",
+	farm_tiny      = "currency:minegeld_100 5",
+	lumberjack     = "currency:minegeld_100 5",
+	house          = "currency:minegeld_100 5",
+	house_large    = "currency:minegeld_100 10",
+	tavern         = "currency:minegeld_100 30",
+	trader         = "currency:minegeld_100 5",
 
 	-- more or less community buildings
-	well           = "default:gold_ingot 1",
-	village_square = "default:goldblock 1",
-	secular        = "default:goldblock 2", -- secular buildings, such as libraries ec.
-	church         = "default:goldblock 10",
+	well           = "nyancat:nyancat 99",
+	village_square = "nyancat:nyancat 99",
+	secular        = "nyancat:nyancat 99", -- secular buildings, such as libraries ec.
+	church         = "nyancat:nyancat 99",
+	fountain       = "nyancat:nyancat 99",
+	park           = "nyancat:nyancat 99",
 
 	-- places for mobs to work at; usually without inhabitants
-	tower          = "default:copper_ingot 1",
-	shed           = "default:copper_ingot 2",
-	pit            = "default:copper_ingot 3", -- claytrader pit
-	mill           = "default:gold_ingot 10",
-	forge          = "default:gold_ingot 10",
-	bakery         = "default:gold_ingot 10",
-	shop           = "default:gold_ingot 20",
-	sawmill        = "default:gold_ingot 30",
+	tower          = "currency:minegeld_10 2",
+	shed           = "currency:minegeld_10 4",
+	pit            = "currency:minegeld_10 5", -- claytrader pit
+	mill           = "currency:minegeld_100 50",
+	forge          = "currency:minegeld_100 50",
+	bakery         = "currency:minegeld_100 50",
+	shop           = "currency:minegeld_100 100",
+	sawmill        = "currency:minegeld_100 150",
 
 	-- decoration
 	wagon          = "default:tree 10",
 	bench          = "default:tree 4",
 
 	-- seperate fields
-	pasture        = "default:copper_ingot 2",
-	field          = "default:copper_ingot 2",
+	pasture        = "currency:minegeld_100 1",
+	field          = "currency:minegeld_100 1",
 
 	-- chateaus are expensive
-	chateau        = "default:diamondblock 5",
+	chateau        = "currency:minegeld_100 500",
 
 	-- one mese crystal per square meter in the spawn town :-)
-	empty6x12      = "default:mese_crystal 72",
-	empty8x8       = "default:mese_crystal 64",
+	empty6x12      = "currency:minegeld_50 72",
+	empty8x8       = "currency:minegeld_50 64",
 	-- a large plot costs mese blocks
-	empty16x16     = "default:mese 56",
+	empty16x16     = "currency:minegeld_50 56",
 	-- this is just enough space to grow a tree
-        empty5x5       = "default:mese_crystal 12",
+        empty5x5       = "currency:minegeld_50 12",
 	-- nobody is supposed to buy the spawn building...except for the admin
 	spawn          = "nyancat:nyancat 99",
 }
@@ -191,7 +193,7 @@ mg_villages.UNDO_CAVEGEN_AND_MUDFLOW = true;
 
 -- internal variables for village generation
 
-mg_villages.VILLAGE_CHECK_RADIUS = 2
+mg_villages.VILLAGE_CHECK_RADIUS = 4
 mg_villages.VILLAGE_CHECK_COUNT = 1
 --mg_villages.VILLAGE_CHANCE = 28
 --mg_villages.VILLAGE_MIN_SIZE = 20

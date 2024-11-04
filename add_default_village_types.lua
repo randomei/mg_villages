@@ -447,7 +447,7 @@ end
 local village_type_data_list = {
 	nore         = { min = 20, max = 40,   space_between_buildings=1, mods={},            texture = 'default_stone_brick.png',
 			 replacement_function = mg_villages.replacements_nore },
-	taoki        = { min = 30, max = 70,   space_between_buildings=1, mods={},            texture = 'default_brick.png' ,
+	taoki        = { min = 30, max = 90,   space_between_buildings=1, mods={},            texture = 'default_brick.png' ,
 			 sapling_divisor =  5, plant_type = 'farming:cotton_8',    plant_frequency = 1,
 			 replacement_function = mg_villages.replacements_taoki },
 	medieval     = { min = 25, max = 60,   space_between_buildings=2, mods={'cottages'},  texture = 'cottages_darkage_straw.png', -- they often have straw roofs
