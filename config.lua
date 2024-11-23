@@ -126,18 +126,18 @@ end
 -----------------------------------------------------------------------------
 -- how much does the player have to pay for a plot with a building?
 mg_villages.prices = {
-	empty          = "currency:minegeld_25 1", -- plot to build on 
+	empty          = "currency:minegeld_100 1", -- plot to build on 
 
 	-- building types which usually have inhabitants (and thus allow the player
 	-- who bought the building to modifiy the entire village area minus other
 	-- buildings)
-	tent           = "currency:minegeld_10 2",
-	hut            = "currency:minegeld_10 2",
+	tent           = "currency:minegeld_100 2",
+	hut            = "currency:minegeld_100 2",
 	farm_full      = "currency:minegeld_100 10",
 	farm_tiny      = "currency:minegeld_100 5",
 	lumberjack     = "currency:minegeld_100 5",
-	house          = "currency:minegeld_100 5",
-	house_large    = "currency:minegeld_100 10",
+	house          = "currency:minegeld_100 10",
+	house_large    = "currency:minegeld_100 20",
 	tavern         = "currency:minegeld_100 30",
 	trader         = "currency:minegeld_100 5",
 
@@ -150,9 +150,9 @@ mg_villages.prices = {
 	park           = "nyancat:nyancat 99",
 
 	-- places for mobs to work at; usually without inhabitants
-	tower          = "currency:minegeld_10 2",
-	shed           = "currency:minegeld_10 4",
-	pit            = "currency:minegeld_10 5", -- claytrader pit
+	tower          = "currency:minegeld_100 2",
+	shed           = "currency:minegeld_100 4",
+	pit            = "currency:minegeld_100 5", -- claytrader pit
 	mill           = "currency:minegeld_100 50",
 	forge          = "currency:minegeld_100 50",
 	bakery         = "currency:minegeld_100 50",
