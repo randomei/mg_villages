@@ -4,6 +4,12 @@ mg_villages.spawnplayer = function(player)
 	if( minetest.settings and minetest.settings:get("static_spawnpoint")) then
 		return;
 	end
+	
+	local name = player:get_player_name()
+	
+	if (beds and (beds.spawn[name] or not beds.respawn[name])) then
+		return;
+	end
 
 	-- make sure the village types are initialized
 	if( not( mg_villages.village_types )) then
