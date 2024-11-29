@@ -7,7 +7,7 @@ mg_villages.spawnplayer = function(player)
 	
 	local name = player:get_player_name()
 	
-	if (beds and (beds.spawn[name] or not beds.respawn[name])) then
+	if (beds and (beds.spawn[name] or (beds.respawn[name] ~= nil and not beds.respawn[name]))) then
 		return;
 	end
 
